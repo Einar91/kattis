@@ -11,7 +11,7 @@ class Main {
 }
 
 
-class Timer {
+class Tidtaker {
     long startTime;
     long endTime;
     
