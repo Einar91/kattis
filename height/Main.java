@@ -3,6 +3,8 @@ import java.util.Scanner;
 // Template
 class Main {
     public static void main(String[] args) {
+        Tidtaker t = new Tidtaker();
+        t.startTimer();
         Scanner in = new Scanner(System.in);
 
         int numDataSets = in.nextInt(); in.nextLine();
@@ -25,6 +27,8 @@ class Main {
             // }
             // System.out.println();
         }
+        t.stopTimer();
+        //System.out.println("Kjoretid i mikrosekunder: " + t.getRunTime());
     }
 
     public static int sort(int[] A) {
@@ -58,5 +62,25 @@ class Main {
         int oldStudent = A[index];
         A[index] = student;
         return 1 + insertStudent(A, oldStudent, index+1);
+    }
+}
+
+class Tidtaker {
+    long startTime;
+    long endTime;
+    
+    void startTimer() {
+        endTime = 0;
+        startTime = System.nanoTime();
+    }
+    
+    void stopTimer() {
+        endTime = System.nanoTime();
+    }
+
+    // Runtime i mikrosekunder
+    // Et mikrosekund er det samme som et milliondels sekund
+    long getRunTime() {
+        return (endTime - startTime) / 1000;
     }
 }
